@@ -48,12 +48,14 @@ export default {
 
 <template>
   <BaseSearch @on-search="fetchFilteredCards" />
-  <FilmCard
-    :title="this.films.title"
-    :originalTitle="this.films.original_title"
-    :language="this.films.original_language"
-    :rating="this.films.vote_average"
-  />
+  <div v-for="film in films">
+    <FilmCard
+      :title="film.title"
+      :originalTitle="film.original_title"
+      :language="film.original_language"
+      :rating="film.vote_average"
+    />
+  </div>
 </template>
 
 <style lang="scss" scoped></style>
