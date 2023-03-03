@@ -1,5 +1,7 @@
 <script>
 // import MyComponent from "./components/MyComponent.vue";
+import AppHeader from "./components/AppHeader.vue";
+import AppMain from "./components/AppMain.vue";
 
 export default {
   data() {
@@ -11,11 +13,13 @@ export default {
   // components: {
   //   MyComponent,
   // },
+  components: { AppHeader, AppMain },
 };
 </script>
 
 <template>
-  <h1>{{ title }}</h1>
+  <AppHeader />
+  <AppMain />
 </template>
 
 <style lang="scss"></style>
