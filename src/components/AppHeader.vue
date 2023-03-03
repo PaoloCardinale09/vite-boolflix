@@ -1,16 +1,38 @@
 <script>
 // import MyComponent from "./components/MyComponent.vue";
+import { store } from "../data/store";
+import BaseSearch from "./BaseSearch.vue";
+import axios from "axios";
 
 export default {
   data() {
     return {
       title: "Boolflix",
+      store,
     };
   },
 
-  // components: {
-  //   MyComponent,
-  // },
+  components: {
+    BaseSearch,
+  },
+
+  methods: {
+    fetch(url) {
+      axios.get(url).then((response) => {
+        store.films = response.data.results;
+      });
+    },
+
+    fetchFilteredCards(term) {
+      // console.log(term);
+      this.fetch(`${store.endpoint} ${term}`);
+    },
+  },
+  // fine importato
+
+  created() {
+    this.fetch(store.endpoint);
+  },
 };
 </script>
 
@@ -18,16 +40,7 @@ export default {
   <header>
     <div class="container">
       <h1>{{ title }}</h1>
-      <div class="input-group w-50">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="ricerca film"
-          aria-label="Recipient's username with two button addons"
-        />
-        <button class="btn btn-outline-secondary" type="button">Search</button>
-        <button class="btn btn-outline-secondary" type="button">Reset</button>
-      </div>
+      <BaseSearch @on-search="fetchFilteredCards" />
     </div>
   </header>
 </template>

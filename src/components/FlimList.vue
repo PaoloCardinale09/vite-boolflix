@@ -2,14 +2,12 @@
 // import MyComponent from "./components/MyComponent.vue";
 import FilmCard from "./FilmCard.vue";
 import BaseSearch from "./BaseSearch.vue";
-import axios from "axios";
+import { store } from "../data/store";
 
 export default {
   data() {
     return {
-      films: [],
-      endpoint:
-        "https://api.themoviedb.org/3/search/movie?api_key=fc223a2987b967c2dd7d6b951473a5f7&query=",
+      store,
     };
   },
 
@@ -18,23 +16,6 @@ export default {
     BaseSearch,
   },
   // importato
-  methods: {
-    fetch(url) {
-      axios.get(url).then((response) => {
-        this.films = response.data.results;
-      });
-    },
-
-    fetchFilteredCards(term) {
-      // console.log(term);
-      this.fetch(`${this.endpoint} ${term}`);
-    },
-  },
-  // fine importato
-
-  created() {
-    this.fetch(this.endpoint);
-  },
 
   //   created() {
   //     axios.get(this.endpoint).then((response) => {
@@ -47,8 +28,7 @@ export default {
 </script>
 
 <template>
-  <BaseSearch @on-search="fetchFilteredCards" />
-  <div v-for="film in films">
+  <div v-for="film in store.films">
     <FilmCard
       :title="film.title"
       :originalTitle="film.original_title"

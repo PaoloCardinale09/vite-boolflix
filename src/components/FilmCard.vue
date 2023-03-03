@@ -23,4 +23,9 @@ export default {
   </ul>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+ul {
+  width: fit-content;
+  border: 1px solid black;
+}
+</style>
