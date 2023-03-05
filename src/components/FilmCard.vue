@@ -6,7 +6,7 @@ export default {
     title: String,
     originalTitle: String,
     language: String,
-    rating: Number,
+    rating: String,
   },
   // components: {
   //   MyComponent,
@@ -18,7 +18,9 @@ export default {
   <ul>
     <li>{{ title }}</li>
     <li>{{ originalTitle }}</li>
-    <li>{{ language }}</li>
+    <li>
+      <img :src="language" alt="" />
+    </li>
     <li>{{ rating }}</li>
   </ul>
 </template>

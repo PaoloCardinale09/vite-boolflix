@@ -19,7 +19,15 @@ export default {
   methods: {
     fetch(url) {
       axios.get(url).then((response) => {
-        store.films = response.data.results;
+        store.allMedias = response.data.results;
+        store.films = store.allMedias.filter(
+          (media) => media.media_type == "movie"
+        );
+        store.tvSeries = store.allMedias.filter(
+          (media) => media.media_type == "tv"
+        );
+        console.log("sono le serie " + store.tvSeries);
+        console.log("sono i films " + store.films);
       });
     },
 
