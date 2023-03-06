@@ -20,11 +20,7 @@ export default {
 </script>
 
 <template>
-  <h2 v-if="store.films.length">
-    Film
-    <font-awesome-icon icon="fa-regular fa-star" />
-    <font-awesome-icon icon="fa-solid fa-star" />
-  </h2>
+  <h2 v-if="store.films.length">Film</h2>
   <div v-for="film in store.films">
     <FilmCard
       :poster="store.picsUrl + film.poster_path"
@@ -53,7 +49,11 @@ export default {
       :title="tvserie.name"
       :originalTitle="tvserie.original_name"
       :language="
-        store.countryFlagUrl + tvserie.origin_country[0].toUpperCase() + '.png'
+        tvserie.origin_country.length
+          ? store.countryFlagUrl +
+            tvserie.origin_country[0].toUpperCase() +
+            '.png'
+          : ''
       "
       :rating="tvserie.vote_average"
     />
