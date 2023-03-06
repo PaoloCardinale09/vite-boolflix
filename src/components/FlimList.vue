@@ -26,19 +26,7 @@ export default {
       :poster="store.picsUrl + film.poster_path"
       :title="film.title"
       :originalTitle="film.original_title"
-      :language="
-        store.countryFlagUrl + film.original_language.toUpperCase() + '.png'
-      "
-      :rating="film.vote_average"
-    />
-
-    <FilmCard
-      :poster="store.picsUrl + film.poster_path"
-      :title="film.title"
-      :originalTitle="film.original_title"
-      :language="
-        store.countryFlagUrl + film.original_language.toUpperCase() + '.png'
-      "
+      :language="film.original_language.toUpperCase()"
       :rating="film.vote_average"
     />
   </div>
@@ -48,13 +36,7 @@ export default {
       :poster="store.picsUrl + tvserie.poster_path"
       :title="tvserie.name"
       :originalTitle="tvserie.original_name"
-      :language="
-        tvserie.origin_country.length
-          ? store.countryFlagUrl +
-            tvserie.origin_country[0].toUpperCase() +
-            '.png'
-          : ''
-      "
+      :language="tvserie.original_language.toUpperCase()"
       :rating="tvserie.vote_average"
     />
   </div>

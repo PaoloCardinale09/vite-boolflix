@@ -1,6 +1,6 @@
 <script>
 // import MyComponent from "./components/MyComponent.vue";
-
+import { store } from "../data/store";
 export default {
   props: {
     title: String,
@@ -8,6 +8,16 @@ export default {
     language: String,
     rating: Number,
     poster: String,
+  },
+
+  methods: {
+    getFlag(language) {
+      if (language == "EN") return `${store.countryFlagUrl}US.png`;
+      if (language == "JA") return `${store.countryFlagUrl}JP.png`;
+      if (language == "ZH") return `${store.countryFlagUrl}CN.png`;
+
+      return `${store.countryFlagUrl}${language}.png`;
+    },
   },
   // components: {
   //   MyComponent,
@@ -23,16 +33,17 @@ export default {
     <li>{{ title }}</li>
     <li>{{ originalTitle }}</li>
     <li>
-      <img :src="language" alt="" />
+      <div>
+        <img :src="getFlag(language)" />
+      </div>
     </li>
     <li>
-      <span v-for="n in 5" :key="n">
-        <i
-          :icon="{
-            'fa-solid fa-star': n <= Math.round(rating / 2),
-            'fa-solid fa-star': n > Math.round(rating / 2),
-          }"
-        ></i>
+      <span v-for="n in Math.round(rating / 2)" :key="n">
+        <font-awesome-icon icon="fa-solid fa-star"></font-awesome-icon>
+      </span>
+
+      <span v-for="n in 5 - Math.round(rating / 2)" :key="n">
+        <font-awesome-icon icon="fa-regular fa-star"></font-awesome-icon>
       </span>
     </li>
   </ul>
