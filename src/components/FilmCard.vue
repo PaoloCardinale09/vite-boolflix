@@ -25,7 +25,16 @@ export default {
     <li>
       <img :src="language" alt="" />
     </li>
-    <li>{{ rating }}</li>
+    <li>
+      <span v-for="n in 5" :key="n">
+        <i
+          :icon="{
+            'fa-solid fa-star': n <= Math.round(rating / 2),
+            'fa-solid fa-star': n > Math.round(rating / 2),
+          }"
+        ></i>
+      </span>
+    </li>
   </ul>
 </template>
 

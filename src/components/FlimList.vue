@@ -16,15 +16,6 @@ export default {
     FilmCard,
     BaseSearch,
   },
-
-  // importato
-  //   created() {
-  //     axios.get(this.endpoint).then((response) => {
-  //       this.film = response.data.results[0];
-  //       console.log("film+" + this.film.title);
-  //       console.log("endpoint" + this.endpoint);
-  //     });
-  //   },
 };
 </script>
 
