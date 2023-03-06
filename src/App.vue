@@ -22,4 +22,8 @@ export default {
   <AppMain />
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+* {
+  list-style-type: none;
+}
+</style>

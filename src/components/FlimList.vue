@@ -20,29 +20,37 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="container">
     <h2 v-if="store.films.length">Film</h2>
-    <div v-for="film in store.films">
-      <FilmCard
-        :poster="store.picsUrl + film.poster_path"
-        :title="film.title"
-        :originalTitle="film.original_title"
-        :language="film.original_language.toUpperCase()"
-        :rating="film.vote_average"
-      />
+    <div class="row row-cols-6 flex-nowrap overflow-auto">
+      <div class="col" v-for="film in store.films">
+        <FilmCard
+          :poster="store.picsUrl + film.poster_path"
+          :title="film.title"
+          :originalTitle="film.original_title"
+          :language="film.original_language.toUpperCase()"
+          :rating="film.vote_average"
+        />
+      </div>
     </div>
     <h2 v-if="store.tvSeries.length">Tv Series</h2>
-    <div v-for="tvserie in store.tvSeries">
-      <FilmCard
-        :poster="store.picsUrl + tvserie.poster_path"
-        :title="tvserie.name"
-        :originalTitle="tvserie.original_name"
-        :language="tvserie.original_language.toUpperCase()"
-        :rating="tvserie.vote_average"
-      />
+    <div class="row row-cols-6 flex-nowrap overflow-auto">
+      <div class="col" v-for="tvserie in store.tvSeries">
+        <FilmCard
+          :poster="store.picsUrl + tvserie.poster_path"
+          :title="tvserie.name"
+          :originalTitle="tvserie.original_name"
+          :language="tvserie.original_language.toUpperCase()"
+          :rating="tvserie.vote_average"
+        />
+      </div>
     </div>
-    <!-- store.films.length === 0 && store.tvSeries.length === 0 -->
-    <p v-if="store.resultFound">No results found.</p>
+    <p
+      class="text-danger h3 py-5"
+      v-if="store.resultFound !== null && store.resultFound === false"
+    >
+      No results found.
+    </p>
   </div>
 </template>
 

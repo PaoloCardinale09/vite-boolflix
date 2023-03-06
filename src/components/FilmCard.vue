@@ -54,4 +54,8 @@ ul {
   width: fit-content;
   border: 1px solid black;
 }
+
+.poster > img {
+  width: 100%;
+}
 </style>

@@ -37,13 +37,15 @@ export default {
         @keyup.enter="search"
       />
       <button class="btn btn-primary" type="button" @click="search">
-        Search
-      </button>
-      <button class="btn btn-secondary" type="button" @click="clear">
-        Reset
+        <font-awesome-icon icon="fa-magnifying-glass" />
       </button>
     </div>
   </form>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.btn-primary {
+  background-color: #8d8d8d;
+  border-color: #8d8d8d;
+}
+</style>

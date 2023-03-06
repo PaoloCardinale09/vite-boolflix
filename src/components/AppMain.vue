@@ -20,4 +20,8 @@ export default {
   <FilmList />
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+* {
+  height: calc(100vh - 4rem);
+}
+</style>
