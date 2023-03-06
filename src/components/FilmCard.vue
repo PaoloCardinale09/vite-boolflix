@@ -6,7 +6,8 @@ export default {
     title: String,
     originalTitle: String,
     language: String,
-    rating: String,
+    rating: Number,
+    poster: String,
   },
   // components: {
   //   MyComponent,
@@ -15,6 +16,9 @@ export default {
 </script>
 
 <template>
+  <div class="poster">
+    <img :src="poster" alt="" />
+  </div>
   <ul>
     <li>{{ title }}</li>
     <li>{{ originalTitle }}</li>
