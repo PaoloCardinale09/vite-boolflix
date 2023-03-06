@@ -33,6 +33,11 @@ export default {
     fetchFilteredCards(term) {
       // console.log(term);
       this.fetch(`${store.endpoint} ${term}`);
+      if (store.films.length === 0 && store.tvSeries.length === 0) {
+        store.resultFound = true;
+      } else {
+        store.resultFound = false;
+      }
     },
   },
   // fine importato
