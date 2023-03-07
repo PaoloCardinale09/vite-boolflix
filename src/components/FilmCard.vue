@@ -10,6 +10,12 @@ export default {
     poster: String,
   },
 
+  data() {
+    return {
+      isHover: false,
+    };
+  },
+
   methods: {
     getFlag(language) {
       if (language == "EN") return `${store.countryFlagUrl}US.png`;
@@ -18,6 +24,8 @@ export default {
 
       return `${store.countryFlagUrl}${language}.png`;
     },
+
+    noneDisplay() {},
   },
   // components: {
   //   MyComponent,
@@ -26,10 +34,15 @@ export default {
 </script>
 
 <template>
-  <div class="poster">
+  <div
+    class="poster"
+    :class="isHover ? 'inactive' : 'active'"
+    @mouseenter="isHover = true"
+    @mouseleave="isHover = false"
+  >
     <img :src="poster" alt="" />
   </div>
-  <ul>
+  <ul class="back">
     <li>{{ title }}</li>
     <li>{{ originalTitle }}</li>
     <li>
@@ -54,8 +67,16 @@ ul {
   width: fit-content;
   border: 1px solid black;
 }
+.active {
+  display: block;
+}
+.inactive {
+  display: none;
+}
 
 .poster > img {
   width: 100%;
+
+  // transition: background-color 0.2s ease;
 }
 </style>

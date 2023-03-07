@@ -37,7 +37,7 @@ export default {
         @keyup.enter="search"
       />
       <button class="btn btn-primary" type="button" @click="search">
-        <font-awesome-icon icon="fa-magnifying-glass" />
+        <font-awesome-icon class="my-lens" icon="fa-magnifying-glass" />
       </button>
     </div>
   </form>
@@ -47,5 +47,8 @@ export default {
 .btn-primary {
   background-color: #8d8d8d;
   border-color: #8d8d8d;
+}
+.my-lens {
+  background-color: inherit;
 }
 </style>

@@ -25,5 +25,6 @@ export default {
 <style lang="scss">
 * {
   list-style-type: none;
+  background-color: #1b1b1b;
 }
 </style>

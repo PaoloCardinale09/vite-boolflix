@@ -23,5 +23,6 @@ export default {
 <style lang="scss" scoped>
 * {
   height: calc(100vh - 4rem);
+  color: #e4e4e5;
 }
 </style>
