@@ -59,7 +59,7 @@ export default {
             alt="logo"
           />
         </div>
-        <ul class="d-flex gap-3">
+        <ul class="d-none d-lg-flex gap-3 align-items-center ms-4">
           <li>Home</li>
           <li>Serie TV</li>
           <li>Film</li>
@@ -93,6 +93,9 @@ header {
 
 ul {
   padding: 0;
+  margin: 0;
+  text-align: center;
+  font-size: 0.8rem;
 }
 .container {
   display: flex;

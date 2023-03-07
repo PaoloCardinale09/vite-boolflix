@@ -21,8 +21,10 @@ export default {
 
 <template>
   <div class="container">
-    <h2 v-if="store.films.length">Film</h2>
-    <div class="row row-cols-6 flex-nowrap overflow-auto">
+    <h2 class="p-2" v-if="store.films.length">Films</h2>
+    <div
+      class="row row-cols-3 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 flex-nowrap overflow-auto"
+    >
       <div class="col" v-for="film in store.films">
         <FilmCard
           :poster="store.picsUrl + film.poster_path"
@@ -33,8 +35,10 @@ export default {
         />
       </div>
     </div>
-    <h2 v-if="store.tvSeries.length">Tv Series</h2>
-    <div class="row row-cols-6 flex-nowrap overflow-auto">
+    <h2 class="p-2 pt-5" v-if="store.tvSeries.length">Tv Series</h2>
+    <div
+      class="row row-cols-3 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 flex-nowrap overflow-auto"
+    >
       <div class="col" v-for="tvserie in store.tvSeries">
         <FilmCard
           :poster="store.picsUrl + tvserie.poster_path"
@@ -58,5 +62,9 @@ export default {
 .col {
   overflow: auto;
   position: relative;
+  cursor: pointer;
+}
+h2 {
+  color: #8d8d8d;
 }
 </style>

@@ -70,6 +70,7 @@ ul {
 
 .poster > img {
   width: 100%;
+  border: 1px solid #8d8d8d;
 
   // transition: background-color 0.2s ease;
 }
