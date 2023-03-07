@@ -13,6 +13,7 @@ export default {
   data() {
     return {
       isHover: false,
+      isShow: true,
     };
   },
 
@@ -41,25 +42,32 @@ export default {
     @mouseleave="isHover = false"
   >
     <img :src="poster" alt="" />
-  </div>
-  <ul class="back">
-    <li>{{ title }}</li>
-    <li>{{ originalTitle }}</li>
-    <li>
-      <div>
-        <img :src="getFlag(language)" />
-      </div>
-    </li>
-    <li>
-      <span v-for="n in Math.round(rating / 2)" :key="n">
-        <font-awesome-icon icon="fa-solid fa-star"></font-awesome-icon>
-      </span>
+    <div
+      class="wrapper"
+      :class="isShow ? 'reactive' : 'reinactive'"
+      @mouseenter="isShow = false"
+      @mouseleave="isShow = true"
+    >
+      <ul class="back">
+        <li>{{ title }}</li>
+        <li>{{ originalTitle }}</li>
+        <li>
+          <div>
+            <img :src="getFlag(language)" />
+          </div>
+        </li>
+        <li>
+          <span v-for="n in Math.round(rating / 2)" :key="n">
+            <font-awesome-icon icon="fa-solid fa-star"></font-awesome-icon>
+          </span>
 
-      <span v-for="n in 5 - Math.round(rating / 2)" :key="n">
-        <font-awesome-icon icon="fa-regular fa-star"></font-awesome-icon>
-      </span>
-    </li>
-  </ul>
+          <span v-for="n in 5 - Math.round(rating / 2)" :key="n">
+            <font-awesome-icon icon="fa-regular fa-star"></font-awesome-icon>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -68,15 +76,32 @@ ul {
   border: 1px solid black;
 }
 .active {
-  display: block;
+  opacity: 1;
 }
 .inactive {
-  display: none;
+  opacity: 0;
 }
 
 .poster > img {
   width: 100%;
 
   // transition: background-color 0.2s ease;
+}
+
+.poster {
+  position: relative;
+}
+
+.wrapper {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+}
+.reactive {
+  opacity: 1;
+}
+
+reinactive {
+  opacity: 0;
 }
 </style>
