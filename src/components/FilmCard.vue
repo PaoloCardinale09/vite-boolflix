@@ -13,7 +13,6 @@ export default {
   data() {
     return {
       isHover: false,
-      isShow: true,
     };
   },
 
@@ -35,19 +34,11 @@ export default {
 </script>
 
 <template>
-  <div
-    class="poster"
-    :class="isHover ? 'inactive' : 'active'"
-    @mouseenter="isHover = true"
-    @mouseleave="isHover = false"
-  >
-    <img :src="poster" alt="" />
-    <div
-      class="wrapper"
-      :class="isShow ? 'reactive' : 'reinactive'"
-      @mouseenter="isShow = false"
-      @mouseleave="isShow = true"
-    >
+  <div class="nonno" @mouseenter="isHover = true" @mouseleave="isHover = false">
+    <div class="poster" :class="isHover ? 'inactive' : 'active'">
+      <img :src="poster" alt="" />
+    </div>
+    <div class="wrapper" :class="isHover ? 'active' : 'inactive'">
       <ul class="back">
         <li>{{ title }}</li>
         <li>{{ originalTitle }}</li>
@@ -73,13 +64,8 @@ export default {
 <style lang="scss" scoped>
 ul {
   width: fit-content;
-  border: 1px solid black;
-}
-.active {
-  opacity: 1;
-}
-.inactive {
-  opacity: 0;
+  padding: 0;
+  // border: 1px solid black;
 }
 
 .poster > img {
@@ -88,20 +74,26 @@ ul {
   // transition: background-color 0.2s ease;
 }
 
-.poster {
-  position: relative;
-}
+// .poster {
+//   z-index: 3;
+// }
 
 .wrapper {
   position: absolute;
   top: 0;
-  opacity: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #8d8d8d;
 }
-.reactive {
+.active {
   opacity: 1;
 }
-
-reinactive {
+.inactive {
   opacity: 0;
 }
 </style>

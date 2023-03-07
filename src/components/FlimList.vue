@@ -57,5 +57,6 @@ export default {
 <style lang="scss" scoped>
 .col {
   overflow: auto;
+  position: relative;
 }
 </style>

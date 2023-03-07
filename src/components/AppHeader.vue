@@ -90,6 +90,10 @@ header {
   color: #8d8d8d;
   height: 4rem;
 }
+
+ul {
+  padding: 0;
+}
 .container {
   display: flex;
   justify-content: space-between;
